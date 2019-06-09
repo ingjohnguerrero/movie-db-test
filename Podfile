@@ -6,6 +6,9 @@ target 'Movie DB Test' do
   use_frameworks!
 
   # Pods for Movie DB Test
+  pod 'MaterialComponents/Tabs'
+  pod 'MaterialComponents/Tabs+ColorThemer'
+  pod 'MaterialComponents/Tabs+TypographyThemer'
 
   target 'Movie DB TestTests' do
     inherit! :search_paths

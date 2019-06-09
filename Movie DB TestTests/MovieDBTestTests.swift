@@ -9,7 +9,7 @@
 import XCTest
 @testable import Movie_DB_Test
 
-class Movie_DB_TestTests: XCTestCase {
+class MovieDBTestTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
