@@ -58,15 +58,15 @@ extension MovieDetailModuleViewController: MovieDetailModuleViewInterface {
 extension MovieDetailModuleViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let scrollDiff = scrollView.contentOffset.y - self.previousOffset
-        
-        let absoluteTop: CGFloat = 0;
-        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height;
-        
+
+        let absoluteTop: CGFloat = 0
+        let absoluteBottom: CGFloat = scrollView.contentSize.height - scrollView.frame.size.height
+
         let isScrollingDown = scrollDiff > 0 && scrollView.contentOffset.y > absoluteTop
         let isScrollingUp = scrollDiff < 0 && scrollView.contentOffset.y < absoluteBottom
-        
+
         if canAnimateHeader(scrollView) {
-            
+
             // Calculate new header height
             var newHeight = self.backdropImageHeightConstraint.constant
             if isScrollingDown {
@@ -74,47 +74,47 @@ extension MovieDetailModuleViewController: UIScrollViewDelegate {
             } else if isScrollingUp {
                 newHeight = min(self.backdropImageEstimatedHeight, self.backdropImageHeightConstraint.constant + abs(scrollDiff))
             }
-            
+
             // Header needs to animate
             if newHeight != self.backdropImageHeightConstraint.constant {
                 self.backdropImageHeightConstraint.constant = newHeight
                 self.updateHeader()
                 self.setScrollPosition(self.previousOffset)
             }
-            
+
             self.previousOffset = scrollView.contentOffset.y
         }
     }
-    
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         self.scrollViewDidStopScrolling()
     }
-    
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.scrollViewDidStopScrolling()
         }
     }
-    
+
     func scrollViewDidStopScrolling() {
         let range = self.backdropImageEstimatedHeight
         let midPoint = (range / 2)
-        
+
         if self.backdropImageHeightConstraint.constant > midPoint {
             self.expandHeader()
         } else {
             self.collapseHeader()
         }
     }
-    
+
     func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
         // Calculate the size of the scrollView when header is collapsed
         let scrollViewMaxHeight = scrollView.frame.height + self.backdropImageHeightConstraint.constant
-        
+
         // Make sure that when header is collapsed, there is still room to scroll
         return scrollView.contentSize.height > scrollViewMaxHeight
     }
-    
+
     func collapseHeader() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
@@ -123,7 +123,7 @@ extension MovieDetailModuleViewController: UIScrollViewDelegate {
             self.view.layoutIfNeeded()
         })
     }
-    
+
     func expandHeader() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
@@ -132,16 +132,16 @@ extension MovieDetailModuleViewController: UIScrollViewDelegate {
             self.view.layoutIfNeeded()
         })
     }
-    
+
     func setScrollPosition(_ position: CGFloat) {
         self.scrollView.contentOffset = CGPoint(x: self.scrollView.contentOffset.x, y: position)
     }
-    
+
     func updateHeader() {
         let range = self.backdropImageEstimatedHeight
         let openAmount = self.backdropImageHeightConstraint.constant
         let percentage = openAmount / range
-        
+
         self.backdropImage.alpha = percentage
     }
 }

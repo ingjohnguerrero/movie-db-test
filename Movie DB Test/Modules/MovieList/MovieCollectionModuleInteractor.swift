@@ -10,10 +10,20 @@
 
 import Foundation
 
+enum MovieCategoryType {
+    case none
+}
+
 final class MovieCollectionModuleInteractor {
 }
 
 // MARK: - Extensions -
 
 extension MovieCollectionModuleInteractor: MovieCollectionModuleInteractorInterface {
+    func getMovieList(for movieCategoryType: MovieCategoryType) -> [Movie] {
+        switch movieCategoryType {
+        default:
+            return [Movie]()
+        }
+    }
 }

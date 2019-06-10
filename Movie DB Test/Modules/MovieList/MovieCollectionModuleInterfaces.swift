@@ -28,4 +28,5 @@ protocol MovieCollectionModuleFormatterInterface: FormatterInterface {
 }
 
 protocol MovieCollectionModuleInteractorInterface: InteractorInterface {
+    func getMovieList(for movieCategoryType: MovieCategoryType) -> [Movie]
 }

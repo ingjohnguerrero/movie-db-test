@@ -9,6 +9,8 @@ target 'Movie DB Test' do
   pod 'MaterialComponents/Tabs'
   pod 'MaterialComponents/Tabs+ColorThemer'
   pod 'MaterialComponents/Tabs+TypographyThemer'
+  
+  pod 'Alamofire', '~> 5.0.0-beta.6'
 
   target 'Movie DB TestTests' do
     inherit! :search_paths
