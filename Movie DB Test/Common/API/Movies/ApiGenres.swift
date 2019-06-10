@@ -8,6 +8,11 @@
 
 import UIKit
 
-class ApiGenres: NSObject {
+class ApiGenres: Codable {
+    var genres:[Genre]
+
+    private enum CodingKeys: String, CodingKey {
+        case genres
+    }
 
 }
