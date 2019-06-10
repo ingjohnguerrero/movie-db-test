@@ -19,11 +19,9 @@ class MovieManagerTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testGetMovieListByNoneType() {
+    func testMovieListInteractorInit() {
         let movieManager = MovieCollectionModuleInteractor()
-        let movieList = movieManager.getMovieList(for: .none)
-
-        XCTAssertEqual(movieList.count, 0, "The array is empty")
+        XCTAssertNotNil(movieManager)
     }
 
 }

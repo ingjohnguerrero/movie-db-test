@@ -17,6 +17,7 @@ final class MovieCollectionModuleViewController: UIViewController {
 
     @IBOutlet weak var movieCollectionView: UICollectionView!
     @IBOutlet weak var tabsContainerView: UIView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     // MARK: - Public properties -
     var presenter: MovieCollectionModulePresenterInterface!
@@ -24,6 +25,7 @@ final class MovieCollectionModuleViewController: UIViewController {
     // MARK: - Private properties -
     private var tabBar: MDCTabBar!
     private let categoriesArray = ["Top rated", "Popular", "Up coming"]
+    private var moviesArray = [Movie]()
 
     // MARK: - Lifecycle -
 
@@ -33,6 +35,7 @@ final class MovieCollectionModuleViewController: UIViewController {
             initPresenter()
         }
         setTabBar()
+        presenter.getMovieList(for: .topRated)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -50,6 +53,31 @@ final class MovieCollectionModuleViewController: UIViewController {
 // MARK: - Extensions -
 
 extension MovieCollectionModuleViewController: MovieCollectionModuleViewInterface {
+    func startLoading() {
+        activityIndicator?.startAnimating()
+        movieCollectionView.isHidden = true
+        activityIndicator?.isHidden = false
+    }
+
+    func finishLoading() {
+        activityIndicator?.stopAnimating()
+        activityIndicator?.isHidden = true
+    }
+
+    func setMoviesList(movieArray: [Movie]) {
+        self.moviesArray = movieArray
+        movieCollectionView.isHidden = false
+        movieCollectionView.reloadData()
+    }
+
+    func showErrorView() {
+
+    }
+
+    func showEmptyView() {
+        movieCollectionView.isHidden = true
+    }
+
 }
 
 extension MovieCollectionModuleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -61,14 +89,14 @@ extension MovieCollectionModuleViewController: UICollectionViewDelegate, UIColle
 
     func registerCellPrototypes() {
         movieCollectionView.register(UINib(nibName: "MovieCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MovieCollectionViewCell" )
-        //        movieCollectionView.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: "MovieCollectionViewCell")
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return moviesArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+        cell.setData(movie: moviesArray[indexPath.row])
         return cell
     }
 
@@ -94,6 +122,7 @@ extension MovieCollectionModuleViewController: UICollectionViewDelegateFlowLayou
 extension MovieCollectionModuleViewController: MDCTabBarDelegate {
     func tabBar(_ tabBar: MDCTabBar, didSelect item: UITabBarItem) {
         print("Selected tab with index: \(item.tag)")
+        presenter.getMovieList(for: MovieCategoryType(rawValue: item.tag)!)
     }
 
     /// Set up MDCTabBar in order to be used in the view
@@ -127,7 +156,6 @@ extension MovieCollectionModuleViewController: MDCTabBarDelegate {
             MDCTabBarColorThemer.applySurfaceVariant(withColorScheme: colorScheme, toTabs: tabBar)
 
             let typographyScheme = MDCTypographyScheme()
-            //typographyScheme.headline1 = UIFont.
 
             MDCTabBarTypographyThemer.applyTypographyScheme(typographyScheme, to: tabBar)
         }

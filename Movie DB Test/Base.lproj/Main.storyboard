@@ -55,12 +55,17 @@
                                     <constraint firstAttribute="height" constant="48" id="Fjf-Om-sj1"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="tTn-Y0-HpD">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="euE-WC-vS6" firstAttribute="top" secondItem="4Ge-uK-Hh3" secondAttribute="bottom" id="9SL-cy-TbG"/>
                             <constraint firstItem="TC5-uc-G5Y" firstAttribute="leading" secondItem="Mvu-Gj-Ixz" secondAttribute="leading" id="J9t-wZ-FmH"/>
+                            <constraint firstItem="tTn-Y0-HpD" firstAttribute="centerY" secondItem="AXe-YO-Vgj" secondAttribute="centerY" id="Jt6-Y9-Zx8"/>
                             <constraint firstItem="4Ge-uK-Hh3" firstAttribute="trailing" secondItem="Mvu-Gj-Ixz" secondAttribute="trailing" id="RVp-D3-5hT"/>
+                            <constraint firstItem="tTn-Y0-HpD" firstAttribute="centerX" secondItem="AXe-YO-Vgj" secondAttribute="centerX" id="dqz-2J-uzJ"/>
                             <constraint firstItem="Mvu-Gj-Ixz" firstAttribute="trailing" secondItem="TC5-uc-G5Y" secondAttribute="trailing" id="f4I-hf-U5r"/>
                             <constraint firstItem="4Ge-uK-Hh3" firstAttribute="leading" secondItem="Mvu-Gj-Ixz" secondAttribute="leading" id="jJz-iy-Bsy"/>
                             <constraint firstItem="Mvu-Gj-Ixz" firstAttribute="bottom" secondItem="TC5-uc-G5Y" secondAttribute="bottom" id="kgD-Dw-sLQ"/>
@@ -71,8 +76,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mvu-Gj-Ixz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Movies" id="rOr-E2-0hO"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="twotone_video_library_black_48pt" id="rOr-E2-0hO">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="3"/>
+                    </tabBarItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="tTn-Y0-HpD" id="X2d-Rn-lcX"/>
                         <outlet property="movieCollectionView" destination="TC5-uc-G5Y" id="eQH-N5-qbb"/>
                         <outlet property="tabsContainerView" destination="euE-WC-vS6" id="wsQ-Hc-08H"/>
                     </connections>
@@ -99,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="357" y="490"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="iHD-RO-xZC">
             <objects>
                 <viewController id="qXB-QE-CVj" sceneMemberID="viewController">
@@ -109,7 +117,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9c5-Ff-nQd"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="3ew-au-mjg"/>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="3ew-au-mjg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6x-Bl-YE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -196,7 +204,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-Lg-LXv">
                                                 <rect key="frame" x="0.0" y="199" width="394" height="811.5"/>
-                                                <mutableString key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
+                                                <string key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
 
 Blue castello cheese and wine fromage. Melted cheese say cheese cut the cheese melted cheese when the cheese comes out everybody's happy cottage cheese say cheese brie. When the cheese comes out everybody's happy cauliflower cheese mascarpone edam bocconcini when the cheese comes out everybody's happy cottage cheese cheeseburger. Cheesy grin manchego st. agur blue cheese.
 
@@ -204,7 +212,7 @@ Pecorino feta cheese on toast. Cheddar port-salut fromage frais cow who moved my
 
 Swiss hard cheese camembert de normandie. Babybel airedale when the cheese comes out everybody's happy ricotta cheese and wine brie port-salut port-salut. Manchego cauliflower cheese red leicester cheesecake cheesecake camembert de normandie smelly cheese swiss. Monterey jack danish fontina.
 
-Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage smelly cheese st. agur blue cheese paneer. Cut the cheese mascarpone brie paneer stinking bishop cauliflower cheese squirty cheese paneer. Chalk and cheese airedale cheese strings cut the cheese macaroni cheese goat rubber cheese bocconcini. Cheesy grin.</mutableString>
+Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage smelly cheese st. agur blue cheese paneer. Cut the cheese mascarpone brie paneer stinking bishop cauliflower cheese squirty cheese paneer. Chalk and cheese airedale cheese strings cut the cheese macaroni cheese goat rubber cheese bocconcini. Cheesy grin.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -269,5 +277,6 @@ Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage 
     </scenes>
     <resources>
         <image name="posterPlaceholder" width="250" height="375"/>
+        <image name="twotone_video_library_black_48pt" width="48" height="48"/>
     </resources>
 </document>

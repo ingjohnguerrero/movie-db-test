@@ -35,4 +35,23 @@ final class MovieCollectionModulePresenter {
 // MARK: - Extensions -
 
 extension MovieCollectionModulePresenter: MovieCollectionModulePresenterInterface {
+    func getMovieList(for movieCategoryType: MovieCategoryType) {
+        view.startLoading()
+        interactor.getMovieList(for: movieCategoryType) { (apiMovieResponse, _) in
+            guard let movieResponse = apiMovieResponse else {
+                self.view.showErrorView()
+                self.view.finishLoading()
+                return
+            }
+
+            if !movieResponse.results.isEmpty {
+                self.view.setMoviesList(movieArray: movieResponse.results)
+            } else {
+                self.view.showEmptyView()
+            }
+
+            self.view.finishLoading()
+        }
+    }
+
 }

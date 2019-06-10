@@ -58,6 +58,10 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="214" height="354"/>
+            <connections>
+                <outlet property="posterImage" destination="h0a-fR-rWF" id="kGn-0p-IId"/>
+                <outlet property="titleLabel" destination="FTW-Jv-69u" id="9cP-br-YRS"/>
+            </connections>
             <point key="canvasLocation" x="259.4202898550725" y="145.98214285714286"/>
         </collectionViewCell>
     </objects>

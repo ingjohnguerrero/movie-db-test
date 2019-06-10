@@ -10,20 +10,37 @@
 
 import Foundation
 
-enum MovieCategoryType {
+enum MovieCategoryType: Int {
+    case topRated
+    case popular
+    case upcoming
     case none
+
 }
 
 final class MovieCollectionModuleInteractor {
+    let movieService = AlamofireMovieService(context: NonPersistentApiContext(environment: ApiEnvironment.production))
 }
 
 // MARK: - Extensions -
 
 extension MovieCollectionModuleInteractor: MovieCollectionModuleInteractorInterface {
-    func getMovieList(for movieCategoryType: MovieCategoryType) -> [Movie] {
+    func getMovieList(for movieCategoryType: MovieCategoryType, completion: @escaping (ApiMovie?, Error?) -> Void) {
         switch movieCategoryType {
-        default:
-            return [Movie]()
+        case .topRated:
+            movieService.getTopRatedMovies { (_, apiMoviesResponse, responseError) in
+                completion(apiMoviesResponse, responseError)
+            }
+        case .popular:
+            movieService.getPopularMovies { (_, apiMoviesResponse, responseError) in
+                completion(apiMoviesResponse, responseError)
+            }
+        case .upcoming:
+            movieService.getUpcomingMovies { (_, apiMoviesResponse, responseError) in
+                completion(apiMoviesResponse, responseError)
+            }
+        case .none:
+            break
         }
     }
 }

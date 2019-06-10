@@ -11,13 +11,10 @@ target 'Movie DB Test' do
   pod 'MaterialComponents/Tabs+TypographyThemer'
   
   pod 'Alamofire', '~> 5.0.0-beta.6'
+  
+  pod 'Kingfisher', '~> 5.0'
 
   target 'Movie DB TestTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'Movie DB TestUITests' do
     inherit! :search_paths
     # Pods for testing
   end

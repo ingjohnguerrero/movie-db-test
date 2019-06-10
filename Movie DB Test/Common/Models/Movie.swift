@@ -18,15 +18,11 @@ struct Movie: Codable {
     var posterImagePath: String?
 
     var posterImageUrl: String {
-        get {
-            return "https://image.tmdb.org/t/p/w500/\(posterImagePath ?? "")"
-        }
+        return "https://image.tmdb.org/t/p/w300/\(posterImagePath ?? "")"
     }
 
     var backdropImageUrl: String {
-        get {
-            return "https://image.tmdb.org/t/p/w500/\(backdropImagePath ?? "")"
-        }
+        return "https://image.tmdb.org/t/p/w500/\(backdropImagePath ?? "")"
     }
 
     init(id: Int,
