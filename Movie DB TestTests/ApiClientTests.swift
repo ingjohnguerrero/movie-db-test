@@ -93,18 +93,18 @@ class ApiClientTests: XCTestCase {
     func testGetUpcomingMovies() {
         let upcomingExpectation = expectation(description: "upcoming movies array response expected")
         var moviesArray = [Movie]()
-        apiMovieService?.getPopularMovies(page: 2, completion: { (moviesResponseArray, _, responseError) in
+        apiMovieService?.getUpcomingMovies(page: 2, completion: { (moviesResponseArray, _, responseError) in
             if let error = responseError {
                 XCTFail("Error in upcoming movies API: \(String(describing: error))")
                 upcomingExpectation.fulfill()
             }
             debugPrint(moviesResponseArray as Any)
-            
+
             moviesArray = moviesResponseArray
-            
+
             upcomingExpectation.fulfill()
         })
-        
+
         waitForExpectations(timeout: 1) { (_) in
             XCTAssertNotEqual(0, moviesArray.count)
         }

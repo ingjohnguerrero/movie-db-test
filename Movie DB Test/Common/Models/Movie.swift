@@ -14,18 +14,18 @@ struct Movie: Codable {
     var releaseDate: String
     var overview: String
     var genreIds: [Int]
-    var backdropImagePath: String
-    var posterImagePath: String
+    var backdropImagePath: String?
+    var posterImagePath: String?
 
     var posterImageUrl: String {
         get {
-            return "https://image.tmdb.org/t/p/w500/\(posterImagePath)"
+            return "https://image.tmdb.org/t/p/w500/\(posterImagePath ?? "")"
         }
     }
 
     var backdropImageUrl: String {
         get {
-            return "https://image.tmdb.org/t/p/w500/\(backdropImagePath)"
+            return "https://image.tmdb.org/t/p/w500/\(backdropImagePath ?? "")"
         }
     }
 
