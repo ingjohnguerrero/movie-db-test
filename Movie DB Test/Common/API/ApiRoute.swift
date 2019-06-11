@@ -15,7 +15,8 @@ enum ApiRoute { case
     movie(id: Int),
     topRated,
     upComing,
-    popular
+    popular,
+    onlineSearch
 
     var path: String {
         switch self {
@@ -25,6 +26,7 @@ enum ApiRoute { case
         case .topRated: return "movie/top_rated"
         case .upComing: return "movie/upcoming"
         case .popular: return "movie/popular"
+        case .onlineSearch: return "search/movie"
         }
     }
 

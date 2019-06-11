@@ -135,4 +135,28 @@ class ApiClientTests: XCTestCase {
         }
     }
 
+    func testOnlineSearch() {
+        let movieSearchExpectation = expectation(description: "Movie search response expected")
+        var moviesArray = [Movie]()
+        apiMovieService?.searchMovieBy(title: "Impossible", completion: { (moviesResponseArray, _, responseError) in
+            if let error = responseError {
+                XCTFail("Error in search movies API: \(String(describing: error))")
+                movieSearchExpectation.fulfill()
+            }
+            debugPrint(moviesResponseArray as Any)
+
+            moviesArray = moviesResponseArray
+
+            movieSearchExpectation.fulfill()
+        })
+
+        waitForExpectations(timeout: 1) { (error) in
+            if error != nil {
+                XCTFail("Error: \(String(describing: error))")
+            } else {
+                XCTAssertNotEqual(0, moviesArray.count)
+            }
+        }
+    }
+
 }

@@ -35,11 +35,8 @@ final class MovieCollectionModuleViewController: UIViewController {
             initPresenter()
         }
         setTabBar()
-        presenter.getMovieList(for: .topRated)
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
         registerCellPrototypes()
+        presenter.getMovieList(for: .topRated)
     }
 
     fileprivate func initPresenter() {
