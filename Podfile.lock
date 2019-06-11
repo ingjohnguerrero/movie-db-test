@@ -1,0 +1,58 @@
+PODS:
+  - Alamofire (5.0.0-beta.6)
+  - Kingfisher (5.6.0)
+  - MaterialComponents/AnimationTiming (84.5.0)
+  - MaterialComponents/Ink (84.5.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/Palettes (84.5.0)
+  - MaterialComponents/private/Application (84.5.0)
+  - MaterialComponents/private/Math (84.5.0)
+  - MaterialComponents/schemes/Color (84.5.0)
+  - MaterialComponents/schemes/Typography (84.5.0):
+    - MaterialComponents/Typography
+  - MaterialComponents/ShadowElevations (84.5.0)
+  - MaterialComponents/ShadowLayer (84.5.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/Tabs (84.5.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/Ink
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowElevations
+    - MaterialComponents/ShadowLayer
+    - MaterialComponents/Typography
+    - MDFInternationalization
+  - "MaterialComponents/Tabs+ColorThemer (84.5.0)":
+    - MaterialComponents/schemes/Color
+    - MaterialComponents/Tabs
+  - "MaterialComponents/Tabs+TypographyThemer (84.5.0)":
+    - MaterialComponents/schemes/Typography
+    - MaterialComponents/Tabs
+  - MaterialComponents/Typography (84.5.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
+  - MDFInternationalization (2.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.6)
+  - Kingfisher (~> 5.0)
+  - MaterialComponents/Tabs
+  - "MaterialComponents/Tabs+ColorThemer"
+  - "MaterialComponents/Tabs+TypographyThemer"
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Kingfisher
+    - MaterialComponents
+    - MDFInternationalization
+
+SPEC CHECKSUMS:
+  Alamofire: cd08a4402bd12cacd0c66f23fb12fec8d6b965e4
+  Kingfisher: 1a50df6880a60bae26f3e21a0df3d17b892f5e0b
+  MaterialComponents: 4f1d0258d14aaf47215c2d710d3b5d915e370622
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+
+PODFILE CHECKSUM: 644a72d2a0672a33125d06c361c0f11d4772f520
+
+COCOAPODS: 1.7.1

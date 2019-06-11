@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="Movie_DB_Test" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="215" height="355"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="215" height="355"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="posterPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="h0a-fR-rWF">
+                        <rect key="frame" x="10" y="10" width="195" height="292.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="h0a-fR-rWF" secondAttribute="height" multiplier="500:750" id="Xkr-0f-ljO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.10000000000000001"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                <size key="value" width="1" height="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <real key="value" value="0.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="FTW-Jv-69u">
+                        <rect key="frame" x="10" y="312.5" width="195" height="32.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="h0a-fR-rWF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="7v9-B8-cpv"/>
+                <constraint firstItem="FTW-Jv-69u" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Hjm-JQ-8zf"/>
+                <constraint firstItem="FTW-Jv-69u" firstAttribute="top" secondItem="h0a-fR-rWF" secondAttribute="bottom" constant="10" id="PaT-hP-V0S"/>
+                <constraint firstAttribute="bottom" secondItem="FTW-Jv-69u" secondAttribute="bottom" constant="10" id="SVx-AA-lgC"/>
+                <constraint firstAttribute="trailing" secondItem="FTW-Jv-69u" secondAttribute="trailing" constant="10" id="YF0-5i-GrL"/>
+                <constraint firstAttribute="trailing" secondItem="h0a-fR-rWF" secondAttribute="trailing" constant="10" id="e6P-iN-csp"/>
+                <constraint firstItem="h0a-fR-rWF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="qhW-ys-bg3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="214" height="354"/>
+            <connections>
+                <outlet property="posterImage" destination="h0a-fR-rWF" id="kGn-0p-IId"/>
+                <outlet property="titleLabel" destination="FTW-Jv-69u" id="9cP-br-YRS"/>
+            </connections>
+            <point key="canvasLocation" x="259.4202898550725" y="145.98214285714286"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="posterPlaceholder" width="250" height="375"/>
+    </resources>
+</document>
