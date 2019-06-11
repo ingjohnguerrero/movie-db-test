@@ -14,19 +14,29 @@ enum DetailsNavigationOption {
     case back
 }
 
+typealias MovieServiceResult = (_ apiMovieResponse: Movie?, _ error: Error?) -> Void
+
 protocol MovieDetailModuleWireframeInterface: WireframeInterface {
     func navigate(to option: DetailsNavigationOption)
 }
 
 protocol MovieDetailModuleViewInterface: ViewInterface {
+    func startLoading()
+    func finishLoading()
+    func setMovie(movie: Movie)
+    func showErrorView()
+    func showEmptyView()
 }
 
 protocol MovieDetailModulePresenterInterface: PresenterInterface {
     func closeMovieDetailView()
+    func getMovieDetails()
 }
 
 protocol MovieDetailModuleFormatterInterface: FormatterInterface {
+
 }
 
 protocol MovieDetailModuleInteractorInterface: InteractorInterface {
+    func getMovieDetails(for movieId: Int, completion: @escaping MovieServiceResult)
 }

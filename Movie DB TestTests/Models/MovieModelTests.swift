@@ -28,7 +28,8 @@ class MovieModelTests: XCTestCase {
             overview: "My awesome movie overview",
             genreIds: [0, 1],
             backdropImagePath: "example.png",
-            posterImagePath: "poster.png")
+            posterImagePath: "poster.png",
+            votingAverage: 9.0)
         XCTAssertNotNil(movie, "movie model instanciated")
     }
 

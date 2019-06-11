@@ -13,9 +13,10 @@ struct Movie: Codable {
     var title: String
     var releaseDate: String
     var overview: String
-    var genreIds: [Int]
+    var genreIds: [Int]?
     var backdropImagePath: String?
     var posterImagePath: String?
+    var votingAverage: Float
 
     var posterImageUrl: String {
         return "https://image.tmdb.org/t/p/w300/\(posterImagePath ?? "")"
@@ -31,7 +32,8 @@ struct Movie: Codable {
          overview: String,
          genreIds: [Int],
          backdropImagePath: String,
-         posterImagePath: String) {
+         posterImagePath: String,
+         votingAverage: Float) {
 
         self.id = id
         self.title = title
@@ -40,6 +42,7 @@ struct Movie: Codable {
         self.genreIds = genreIds
         self.backdropImagePath = backdropImagePath
         self.posterImagePath = posterImagePath
+        self.votingAverage = votingAverage
     }
 
     private enum CodingKeys: String, CodingKey {
@@ -50,5 +53,6 @@ struct Movie: Codable {
         case genreIds = "genre_ids"
         case backdropImagePath = "backdrop_path"
         case posterImagePath = "poster_path"
+        case votingAverage = "vote_average"
     }
 }

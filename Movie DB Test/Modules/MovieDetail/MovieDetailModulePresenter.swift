@@ -18,20 +18,37 @@ final class MovieDetailModulePresenter {
     private let formatter: MovieDetailModuleFormatterInterface
     private let interactor: MovieDetailModuleInteractorInterface
     private let wireframe: MovieDetailModuleWireframeInterface
+    private let movieId: Int
 
     // MARK: - Lifecycle -
 
-    init(view: MovieDetailModuleViewInterface, formatter: MovieDetailModuleFormatterInterface, interactor: MovieDetailModuleInteractorInterface, wireframe: MovieDetailModuleWireframeInterface) {
+    init(view: MovieDetailModuleViewInterface, formatter: MovieDetailModuleFormatterInterface, interactor: MovieDetailModuleInteractorInterface, wireframe: MovieDetailModuleWireframeInterface, movieId: Int) {
         self.view = view
         self.formatter = formatter
         self.interactor = interactor
         self.wireframe = wireframe
+        self.movieId = movieId
     }
 }
 
 // MARK: - Extensions -
 
 extension MovieDetailModulePresenter: MovieDetailModulePresenterInterface {
+    func getMovieDetails() {
+        view.startLoading()
+        interactor.getMovieDetails(for: movieId) { (movieResponse, _) in
+            guard let movieResponse = movieResponse else {
+                self.view.showErrorView()
+                self.view.finishLoading()
+                return
+            }
+
+            self.view.setMovie(movie: movieResponse)
+
+            self.view.finishLoading()
+        }
+    }
+
     func closeMovieDetailView() {
         wireframe.navigate(to: .back)
     }

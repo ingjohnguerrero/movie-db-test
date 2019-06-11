@@ -143,7 +143,7 @@
                                 <rect key="frame" x="10" y="320.5" width="394" height="541.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-PH-5qL">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="1010.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="524"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIU-nX-gEr">
                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="145"/>
@@ -203,16 +203,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-Lg-LXv">
-                                                <rect key="frame" x="0.0" y="199" width="394" height="811.5"/>
-                                                <string key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
+                                                <rect key="frame" x="0.0" y="199" width="394" height="325"/>
+                                                <mutableString key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
 
-Blue castello cheese and wine fromage. Melted cheese say cheese cut the cheese melted cheese when the cheese comes out everybody's happy cottage cheese say cheese brie. When the cheese comes out everybody's happy cauliflower cheese mascarpone edam bocconcini when the cheese comes out everybody's happy cottage cheese cheeseburger. Cheesy grin manchego st. agur blue cheese.
-
-Pecorino feta cheese on toast. Cheddar port-salut fromage frais cow who moved my cheese cheddar say cheese st. agur blue cheese. Everyone loves cream cheese taleggio caerphilly monterey jack emmental cheesecake the big cheese. Ricotta cheesy grin queso cheesecake cheese on toast.
-
-Swiss hard cheese camembert de normandie. Babybel airedale when the cheese comes out everybody's happy ricotta cheese and wine brie port-salut port-salut. Manchego cauliflower cheese red leicester cheesecake cheesecake camembert de normandie smelly cheese swiss. Monterey jack danish fontina.
-
-Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage smelly cheese st. agur blue cheese paneer. Cut the cheese mascarpone brie paneer stinking bishop cauliflower cheese squirty cheese paneer. Chalk and cheese airedale cheese strings cut the cheese macaroni cheese goat rubber cheese bocconcini. Cheesy grin.</string>
+Blue castello cheese and wine fromage. Melted cheese say cheese cut the cheese melted cheese when the cheese comes out everybody's happy cottage cheese say cheese brie. When the cheese comes out everybody's happy cauliflower cheese mascarpone edam bocconcini when the cheese comes out everybody's happy cottage cheese cheeseburger. Cheesy grin manchego st. agur blue cheese.</mutableString>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -243,15 +237,20 @@ Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage 
                                     <navigationItem title="Details" id="2l4-0n-Vjt"/>
                                 </items>
                             </navigationBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qKG-NR-yTA">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4d1-L5-LLn" firstAttribute="bottom" secondItem="ZMk-eO-FHA" secondAttribute="bottom" id="Jiz-cM-WQq"/>
                             <constraint firstItem="cve-Yu-X3O" firstAttribute="centerX" secondItem="ryT-pz-fwK" secondAttribute="centerX" id="Lmg-uG-lSh"/>
+                            <constraint firstItem="qKG-NR-yTA" firstAttribute="centerX" secondItem="ryT-pz-fwK" secondAttribute="centerX" id="N4x-Ga-dPA"/>
                             <constraint firstItem="gzi-i6-yx5" firstAttribute="leading" secondItem="4d1-L5-LLn" secondAttribute="leading" id="QYH-tX-pNC"/>
                             <constraint firstItem="ZMk-eO-FHA" firstAttribute="leading" secondItem="4d1-L5-LLn" secondAttribute="leading" constant="10" id="Tzh-Ec-PMh"/>
                             <constraint firstItem="4d1-L5-LLn" firstAttribute="trailing" secondItem="ZMk-eO-FHA" secondAttribute="trailing" constant="10" id="UE7-ri-fyi"/>
                             <constraint firstItem="cve-Yu-X3O" firstAttribute="top" secondItem="gzi-i6-yx5" secondAttribute="bottom" id="Vyd-8f-zro"/>
+                            <constraint firstItem="qKG-NR-yTA" firstAttribute="centerY" secondItem="ryT-pz-fwK" secondAttribute="centerY" id="eA4-o3-M1A"/>
                             <constraint firstItem="ZMk-eO-FHA" firstAttribute="top" secondItem="cve-Yu-X3O" secondAttribute="bottom" id="j16-MS-zco"/>
                             <constraint firstItem="gzi-i6-yx5" firstAttribute="trailing" secondItem="4d1-L5-LLn" secondAttribute="trailing" id="nKQ-kt-6S8"/>
                             <constraint firstItem="gzi-i6-yx5" firstAttribute="top" secondItem="4d1-L5-LLn" secondAttribute="top" id="q3d-Sb-vud"/>
@@ -259,10 +258,12 @@ Gouda parmesan edam. Manchego airedale smelly cheese cauliflower cheese fromage 
                         <viewLayoutGuide key="safeArea" id="4d1-L5-LLn"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="qKG-NR-yTA" id="NKs-Ay-6xk"/>
                         <outlet property="backdropImage" destination="cve-Yu-X3O" id="GxI-Lr-WAa"/>
                         <outlet property="backdropImageHeightConstraint" destination="2Iz-5R-Xsh" id="9J7-Gb-vah"/>
                         <outlet property="genresLabel" destination="GBd-V1-tyl" id="qtu-t5-99u"/>
                         <outlet property="navigationItem" destination="2l4-0n-Vjt" id="nuu-0G-CIx"/>
+                        <outlet property="overviewLabel" destination="TIA-Lg-LXv" id="lmE-xx-h7d"/>
                         <outlet property="posterImage" destination="p9f-BK-K5f" id="hhd-ET-R0P"/>
                         <outlet property="releaseDateLabel" destination="6kF-Mx-LuU" id="Cer-4a-VVT"/>
                         <outlet property="scrollView" destination="ZMk-eO-FHA" id="F0t-Wg-HY3"/>

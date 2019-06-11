@@ -110,4 +110,29 @@ class ApiClientTests: XCTestCase {
         }
     }
 
+    func testGetMovieById() {
+        //Test movie 353081
+        let movieDetailsException = expectation(description: "Movie details response expected")
+        var movie: Movie?
+        apiMovieService?.getMovie(id: 353081, completion: { (movieResponse, responseError) in
+
+            if let error = responseError {
+                XCTFail("Error in upcoming movies API: \(String(describing: error))")
+                movieDetailsException.fulfill()
+            }
+
+            movie = movieResponse
+
+            movieDetailsException.fulfill()
+        })
+
+        waitForExpectations(timeout: 1) { (error) in
+            if error != nil {
+                XCTFail("Error: \(String(describing: error))")
+            } else {
+                XCTAssertNotNil(movie)
+            }
+        }
+    }
+
 }

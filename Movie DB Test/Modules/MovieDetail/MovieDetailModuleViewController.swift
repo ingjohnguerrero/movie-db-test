@@ -20,14 +20,14 @@ final class MovieDetailModuleViewController: UIViewController {
     @IBOutlet weak var genresLabel: UILabel!
     @IBOutlet weak var votingAverageLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     /// Estimated backdrop estimated height depending on the screen screen width
     fileprivate var backdropImageEstimatedHeight: CGFloat {
-        get {
-            let screenSize: CGRect = UIScreen.main.bounds
-            let screenWidth = screenSize.width
-            let aspectRatioContant: CGFloat = (281/500)
-            return (screenWidth * aspectRatioContant)
-        }
+        let screenSize: CGRect = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let aspectRatioContant: CGFloat = (281/500)
+        return (screenWidth * aspectRatioContant)
     }
 
     // MARK: - Public properties -
@@ -37,12 +37,17 @@ final class MovieDetailModuleViewController: UIViewController {
     // MARK: - Private properties -
     fileprivate var isScrollTrackingEnabled = true
     fileprivate var previousOffset: CGFloat = 0
+    fileprivate var movie: Movie?
 
     // MARK: - Lifecycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(onCloseButton))
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        presenter.getMovieDetails()
     }
 
     @objc func onCloseButton(_ sender: Any) {
@@ -53,6 +58,49 @@ final class MovieDetailModuleViewController: UIViewController {
 // MARK: - Extensions -
 
 extension MovieDetailModuleViewController: MovieDetailModuleViewInterface {
+    func startLoading() {
+        activityIndicator?.startAnimating()
+        backdropImage.isHidden = true
+        scrollView.isHidden = true
+        activityIndicator?.isHidden = false
+    }
+
+    func finishLoading() {
+        activityIndicator?.stopAnimating()
+        activityIndicator?.isHidden = true
+        backdropImage.isHidden = false
+        scrollView.isHidden = false
+    }
+
+    func setMovie(movie: Movie) {
+        self.movie = movie
+        overviewLabel.text = movie.overview
+        titleLabel.text = movie.title
+        releaseDateLabel.text = "Release date: \(movie.releaseDate)"
+        votingAverageLabel.text = "Voting average: \(movie.votingAverage)"
+        posterImage.kf.setImage(
+            with: URL(string: movie.posterImageUrl),
+            placeholder: UIImage(named: "posterPlaceholder"),
+            options: [.transition(.fade(1)), .loadDiskFileSynchronously]
+        )
+        if movie.backdropImagePath != nil {
+            backdropImage.kf.setImage(
+                with: URL(string: movie.backdropImageUrl),
+                placeholder: UIImage(named: "posterPlaceholder"),
+                options: [.transition(.fade(1)), .loadDiskFileSynchronously]
+            )
+        }
+    }
+
+    func showErrorView() {
+
+    }
+
+    func showEmptyView() {
+        backdropImage.isHidden = true
+        scrollView.isHidden = true
+    }
+
 }
 
 extension MovieDetailModuleViewController: UIScrollViewDelegate {

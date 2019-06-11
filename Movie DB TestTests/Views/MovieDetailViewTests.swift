@@ -17,10 +17,7 @@ class MovieDetailViewTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         // Put setup code here. This method is called before the invocation of each test method in the class.
-//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        sut = storyboard.instantiateViewController(withIdentifier: "MovieDetailModuleViewController") as? MovieDetailModuleViewController
-//        sut.loadViewIfNeeded()
-        moduleWireframe = MovieDetailModuleWireframe()
+        moduleWireframe = MovieDetailModuleWireframe(movieId: 0)
     }
 
     override func tearDown() {
@@ -34,18 +31,6 @@ class MovieDetailViewTests: XCTestCase {
     func test_presenterInstance() {
         let presenter = (moduleWireframe.viewController as! MovieDetailModuleViewController).presenter
         XCTAssertNotNil(presenter, "The presenter is loading!")
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
 
 }

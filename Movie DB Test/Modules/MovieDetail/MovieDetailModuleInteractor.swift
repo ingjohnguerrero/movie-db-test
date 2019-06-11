@@ -11,9 +11,16 @@
 import Foundation
 
 final class MovieDetailModuleInteractor {
+    let movieService = AlamofireMovieService(context: NonPersistentApiContext(environment: ApiEnvironment.production))
 }
 
 // MARK: - Extensions -
 
 extension MovieDetailModuleInteractor: MovieDetailModuleInteractorInterface {
+    func getMovieDetails(for movieId: Int, completion: @escaping MovieServiceResult) {
+        movieService.getMovie(id: movieId) { (movieResponse, responseError) in
+            completion(movieResponse, responseError)
+        }
+    }
+
 }

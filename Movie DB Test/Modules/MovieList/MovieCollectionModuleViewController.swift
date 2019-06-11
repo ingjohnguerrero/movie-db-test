@@ -83,7 +83,7 @@ extension MovieCollectionModuleViewController: MovieCollectionModuleViewInterfac
 extension MovieCollectionModuleViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let detailWireframe = MovieDetailModuleWireframe()
+        let detailWireframe = MovieDetailModuleWireframe(movieId: moviesArray[indexPath.row].id)
         self.presentWireframe(detailWireframe)
     }
 
