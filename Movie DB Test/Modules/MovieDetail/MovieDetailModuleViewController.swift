@@ -89,6 +89,9 @@ extension MovieDetailModuleViewController: MovieDetailModuleViewInterface {
                 placeholder: UIImage(named: "posterPlaceholder"),
                 options: [.transition(.fade(1)), .loadDiskFileSynchronously]
             )
+        } else {
+            backdropImage.isHidden = true
+            backdropImageHeightConstraint.constant = 0
         }
     }
 

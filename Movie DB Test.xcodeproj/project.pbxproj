@@ -46,6 +46,13 @@
 		C19532FE22AE8918006FE505 /* ApiRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19532FD22AE8918006FE505 /* ApiRoute.swift */; };
 		C195330122AE8C30006FE505 /* ApiContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C195330022AE8C30006FE505 /* ApiContext.swift */; };
 		C195330322AE8C5A006FE505 /* NonPersistantApiContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C195330222AE8C5A006FE505 /* NonPersistantApiContext.swift */; };
+		C19839B722AF491D004AD036 /* OnlineSearchModuleInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839B222AF491D004AD036 /* OnlineSearchModuleInterfaces.swift */; };
+		C19839B822AF491D004AD036 /* OnlineSearchModulePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839B322AF491D004AD036 /* OnlineSearchModulePresenter.swift */; };
+		C19839B922AF491D004AD036 /* OnlineSearchModuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839B422AF491D004AD036 /* OnlineSearchModuleViewController.swift */; };
+		C19839BA22AF491D004AD036 /* OnlineSearchModuleInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839B522AF491D004AD036 /* OnlineSearchModuleInteractor.swift */; };
+		C19839BB22AF491D004AD036 /* OnlineSearchModuleWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839B622AF491D004AD036 /* OnlineSearchModuleWireframe.swift */; };
+		C19839BF22AF4E52004AD036 /* MovieResultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19839BD22AF4E52004AD036 /* MovieResultTableViewCell.swift */; };
+		C19839C022AF4E52004AD036 /* MovieResultTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C19839BE22AF4E52004AD036 /* MovieResultTableViewCell.xib */; };
 		C1B5274922AC038800574F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B5274822AC038800574F94 /* AppDelegate.swift */; };
 		C1B5274E22AC038800574F94 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C1B5274C22AC038800574F94 /* Main.storyboard */; };
 		C1B5275022AC038A00574F94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1B5274F22AC038A00574F94 /* Assets.xcassets */; };
@@ -111,6 +118,13 @@
 		C19532FD22AE8918006FE505 /* ApiRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRoute.swift; sourceTree = "<group>"; };
 		C195330022AE8C30006FE505 /* ApiContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiContext.swift; sourceTree = "<group>"; };
 		C195330222AE8C5A006FE505 /* NonPersistantApiContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonPersistantApiContext.swift; sourceTree = "<group>"; };
+		C19839B222AF491D004AD036 /* OnlineSearchModuleInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchModuleInterfaces.swift; sourceTree = "<group>"; };
+		C19839B322AF491D004AD036 /* OnlineSearchModulePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchModulePresenter.swift; sourceTree = "<group>"; };
+		C19839B422AF491D004AD036 /* OnlineSearchModuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchModuleViewController.swift; sourceTree = "<group>"; };
+		C19839B522AF491D004AD036 /* OnlineSearchModuleInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchModuleInteractor.swift; sourceTree = "<group>"; };
+		C19839B622AF491D004AD036 /* OnlineSearchModuleWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineSearchModuleWireframe.swift; sourceTree = "<group>"; };
+		C19839BD22AF4E52004AD036 /* MovieResultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResultTableViewCell.swift; sourceTree = "<group>"; };
+		C19839BE22AF4E52004AD036 /* MovieResultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieResultTableViewCell.xib; sourceTree = "<group>"; };
 		C1B5274522AC038800574F94 /* Movie DB Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie DB Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B5274822AC038800574F94 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1B5274D22AC038800574F94 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -227,6 +241,7 @@
 		C148C8B522AC0C4B00D036C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C19839B122AF48DF004AD036 /* OnlineSearch */,
 				C13140FA22ACDA79004AF773 /* MovieDetail */,
 				C148C8B622AC0C7B00D036C0 /* MovieList */,
 			);
@@ -319,6 +334,28 @@
 				C195330222AE8C5A006FE505 /* NonPersistantApiContext.swift */,
 			);
 			path = Context;
+			sourceTree = "<group>";
+		};
+		C19839B122AF48DF004AD036 /* OnlineSearch */ = {
+			isa = PBXGroup;
+			children = (
+				C19839BC22AF4E24004AD036 /* Cells */,
+				C19839B222AF491D004AD036 /* OnlineSearchModuleInterfaces.swift */,
+				C19839B322AF491D004AD036 /* OnlineSearchModulePresenter.swift */,
+				C19839B422AF491D004AD036 /* OnlineSearchModuleViewController.swift */,
+				C19839B522AF491D004AD036 /* OnlineSearchModuleInteractor.swift */,
+				C19839B622AF491D004AD036 /* OnlineSearchModuleWireframe.swift */,
+			);
+			path = OnlineSearch;
+			sourceTree = "<group>";
+		};
+		C19839BC22AF4E24004AD036 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C19839BD22AF4E52004AD036 /* MovieResultTableViewCell.swift */,
+				C19839BE22AF4E52004AD036 /* MovieResultTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C1B5273C22AC038800574F94 = {
@@ -463,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1B5275322AC038A00574F94 /* LaunchScreen.storyboard in Resources */,
+				C19839C022AF4E52004AD036 /* MovieResultTableViewCell.xib in Resources */,
 				C1B5275022AC038A00574F94 /* Assets.xcassets in Resources */,
 				C1B5274E22AC038800574F94 /* Main.storyboard in Resources */,
 				C148C8BB22AC10ED00D036C0 /* MovieCollectionViewCell.xib in Resources */,
@@ -573,6 +611,7 @@
 				C19532EB22ADD0A8006FE505 /* Genre.swift in Sources */,
 				C13140F722ACDA6D004AF773 /* MovieDetailModuleFormatter.swift in Sources */,
 				C13140F822ACDA6D004AF773 /* MovieDetailModuleInteractor.swift in Sources */,
+				C19839BB22AF491D004AD036 /* OnlineSearchModuleWireframe.swift in Sources */,
 				C14666B622AEBB540079CD7F /* ApiGenres.swift in Sources */,
 				C13140D322AC3870004AF773 /* MovieCollectionModuleViewController.swift in Sources */,
 				C13140F922ACDA6D004AF773 /* MovieDetailModuleWireframe.swift in Sources */,
@@ -588,11 +627,16 @@
 				C13140F422ACDA6D004AF773 /* MovieDetailModuleInterfaces.swift in Sources */,
 				C195330322AE8C5A006FE505 /* NonPersistantApiContext.swift in Sources */,
 				C13140E322AC38A0004AF773 /* ViewInterface.swift in Sources */,
+				C19839B822AF491D004AD036 /* OnlineSearchModulePresenter.swift in Sources */,
+				C19839BF22AF4E52004AD036 /* MovieResultTableViewCell.swift in Sources */,
 				C19532E522ADACC0006FE505 /* Movie.swift in Sources */,
+				C19839B722AF491D004AD036 /* OnlineSearchModuleInterfaces.swift in Sources */,
 				C13140D122AC3870004AF773 /* MovieCollectionModuleInterfaces.swift in Sources */,
 				C13140F622ACDA6D004AF773 /* MovieDetailModuleViewController.swift in Sources */,
 				C13140F522ACDA6D004AF773 /* MovieDetailModulePresenter.swift in Sources */,
+				C19839BA22AF491D004AD036 /* OnlineSearchModuleInteractor.swift in Sources */,
 				C1B5274922AC038800574F94 /* AppDelegate.swift in Sources */,
+				C19839B922AF491D004AD036 /* OnlineSearchModuleViewController.swift in Sources */,
 				C14F8BF122AE985A00A4AE55 /* MovieService.swift in Sources */,
 				C13140D622AC3870004AF773 /* MovieCollectionModuleWireframe.swift in Sources */,
 				C13140DF22AC38A0004AF773 /* BaseWireframe.swift in Sources */,

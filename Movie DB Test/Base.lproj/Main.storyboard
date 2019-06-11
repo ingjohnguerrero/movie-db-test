@@ -107,21 +107,61 @@
             </objects>
             <point key="canvasLocation" x="357" y="490"/>
         </scene>
-        <!--View Controller-->
+        <!--Online Search Module View Controller-->
         <scene sceneID="iHD-RO-xZC">
             <objects>
-                <viewController id="qXB-QE-CVj" sceneMemberID="viewController">
+                <viewController id="qXB-QE-CVj" customClass="OnlineSearchModuleViewController" customModule="Movie_DB_Test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wDv-dp-1zm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ezP-le-lI2">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="qXB-QE-CVj" id="9P4-rK-kWd"/>
+                                </connections>
+                            </searchBar>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sme-Hn-Kf0">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CF8-rL-8Bq">
+                                <rect key="frame" x="0.0" y="100" width="414" height="713"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="qXB-QE-CVj" id="uLx-qJ-LSP"/>
+                                    <outlet property="delegate" destination="qXB-QE-CVj" id="iJy-PD-sRC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9c5-Ff-nQd" firstAttribute="trailing" secondItem="CF8-rL-8Bq" secondAttribute="trailing" id="35W-q6-KCE"/>
+                            <constraint firstItem="sme-Hn-Kf0" firstAttribute="centerX" secondItem="wDv-dp-1zm" secondAttribute="centerX" id="BLo-Tg-oro"/>
+                            <constraint firstItem="sme-Hn-Kf0" firstAttribute="centerY" secondItem="wDv-dp-1zm" secondAttribute="centerY" id="FkU-Y4-tDv"/>
+                            <constraint firstItem="ezP-le-lI2" firstAttribute="leading" secondItem="9c5-Ff-nQd" secondAttribute="leading" id="VFj-6Z-o7X"/>
+                            <constraint firstItem="CF8-rL-8Bq" firstAttribute="top" secondItem="ezP-le-lI2" secondAttribute="bottom" id="WVU-4D-iAe"/>
+                            <constraint firstItem="ezP-le-lI2" firstAttribute="top" secondItem="9c5-Ff-nQd" secondAttribute="top" id="YPG-6G-4EY"/>
+                            <constraint firstItem="ezP-le-lI2" firstAttribute="trailing" secondItem="9c5-Ff-nQd" secondAttribute="trailing" id="Z1J-cP-aDh"/>
+                            <constraint firstItem="CF8-rL-8Bq" firstAttribute="leading" secondItem="9c5-Ff-nQd" secondAttribute="leading" id="gog-U7-Lum"/>
+                            <constraint firstItem="9c5-Ff-nQd" firstAttribute="bottom" secondItem="CF8-rL-8Bq" secondAttribute="bottom" id="n3w-mi-vMb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9c5-Ff-nQd"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="3ew-au-mjg"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="sme-Hn-Kf0" id="WUu-eE-BV3"/>
+                        <outlet property="moviesTableView" destination="CF8-rL-8Bq" id="4Ug-yn-i0G"/>
+                        <outlet property="searchBar" destination="ezP-le-lI2" id="Orq-TC-C3L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B6x-Bl-YE8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1258" y="796"/>
+            <point key="canvasLocation" x="1257.9710144927537" y="795.53571428571422"/>
         </scene>
         <!--Movie Detail Module View Controller-->
         <scene sceneID="ZMG-gN-n0V">
@@ -204,9 +244,9 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TIA-Lg-LXv">
                                                 <rect key="frame" x="0.0" y="199" width="394" height="325"/>
-                                                <mutableString key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
+                                                <string key="text">Lancashire cheese strings cheese strings. Chalk and cheese cow dolcelatte gouda feta croque monsieur cauliflower cheese rubber cheese. Roquefort melted cheese gouda boursin caerphilly brie cheese triangles swiss. Swiss lancashire smelly cheese taleggio chalk and cheese feta manchego.
 
-Blue castello cheese and wine fromage. Melted cheese say cheese cut the cheese melted cheese when the cheese comes out everybody's happy cottage cheese say cheese brie. When the cheese comes out everybody's happy cauliflower cheese mascarpone edam bocconcini when the cheese comes out everybody's happy cottage cheese cheeseburger. Cheesy grin manchego st. agur blue cheese.</mutableString>
+Blue castello cheese and wine fromage. Melted cheese say cheese cut the cheese melted cheese when the cheese comes out everybody's happy cottage cheese say cheese brie. When the cheese comes out everybody's happy cauliflower cheese mascarpone edam bocconcini when the cheese comes out everybody's happy cottage cheese cheeseburger. Cheesy grin manchego st. agur blue cheese.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>

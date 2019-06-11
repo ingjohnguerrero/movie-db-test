@@ -7,12 +7,12 @@ Test application using movie db
 - [X] Consumir el API de películas y series de la siguiente pagina: link
 - [X] Debe tener tres categorías de películas y/o series: Popular, Top Rated, Upcoming.
 - [X] Cada película y/o series debe poder visualizar su detalle.
-- [ ] Debe funcionar tanto online como offline (cache).
+- [X] Debe funcionar tanto online como offline (cache). -> (Alamofire cache)
 - [ ] Debe tener un buscador offline por categorías.
 Valoraciones extras:
 1. [ ] Visualización de los videos en el detalle de cada ítem.
 2. [X] Transiciones, Animaciones, UI/UX.
-3. [ ] Buscador Online.
+3. [X] Buscador Online.
 4. [X] Unit Test.
 5. [ ] Implementación de RXSwift y RXCocoa.
 
@@ -29,6 +29,7 @@ qué clases pertenecen a cual.
         * Se realizaron Unit tests sobre los modelos, el API client para acceder al contenido de **The Movie DB**
     * El API usa [Alamofire 5]("https://github.com/Alamofire/Alamofire"), es accedido por el interactor de casa uno de los modulos. También cuenta con pruebas unitarias, así como la implementación de *Codable/Decodable*
     * Las imagenes son implementadas por la librería [Kingfisher]("https://github.com/onevcat/Kingfisher")
+    * SwiftLint para usar los guidelines estandar para Swift
 
 2. La responsabilidad de cada clase creada.
 Responda y escriba dentro del Readme con las siguientes preguntas:

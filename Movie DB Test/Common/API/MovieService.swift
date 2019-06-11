@@ -19,5 +19,6 @@ protocol MovieService: class {
     func getTopRatedMovies(page: Int, completion: @escaping MoviesResult)
     func getPopularMovies(page: Int, completion: @escaping MoviesResult)
     func getUpcomingMovies(page: Int, completion: @escaping MoviesResult)
+    func searchMovieBy(title:String, completion: @escaping MoviesResult)
 
 }

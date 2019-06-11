@@ -10,6 +10,21 @@ import Foundation
 import Alamofire
 
 class AlamofireMovieService: AlamofireService, MovieService {
+    func searchMovieBy(title: String, completion: @escaping MoviesResult) {
+        getRequest(at: .onlineSearch, params: ["query": title]).responseDecodable(completionHandler: { (response: DataResponse<ApiMovie>) in
+            var movies = [Movie]()
+
+            switch response.result {
+            case .success(let value):
+                movies = value.results
+                completion(movies, value, nil)
+
+            case .failure(let responseError):
+                completion(movies, nil, responseError)
+            }
+        })
+    }
+
     func getTopRatedMovies(page: Int = 1, completion: @escaping MoviesResult) {
         getRequest(at: .topRated, params: ["page": page]).responseDecodable(completionHandler: { (response: DataResponse<ApiMovie>) in
             var movies = [Movie]()
